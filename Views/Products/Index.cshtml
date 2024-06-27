@@ -1,0 +1,86 @@
+﻿@model IEnumerable<TheNaturalTouch.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create"><h3>Add New Towel</h3></a>
+</p>
+<form asp-controller="Products" asp-action="Index">
+    <p>
+        Category: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<div class="gallery">
+    @foreach (var item in Model)
+    {
+
+        <div class="gallery-item">
+            <img class="product_img" src="@item.Image" alt="@item.Image" width="600" height="400">
+
+
+            <div class="overlay">
+                <a asp-action="Edit" asp-route-id="@item.Id"><img src="/Images/edit.png" class="icon_img" alt="Edit"></a>
+                <a asp-action="Details" asp-route-id="@item.Id"><img src="/Images/file.png" class="icon_img" alt="Details"></a>
+                <a asp-action="Delete" asp-route-id="@item.Id"><img src="/Images/trash.png" class="icon_img" alt="Delete"></a>
+            </div>
+            <div class="desc">
+                @Html.DisplayFor(modelItem => item.Category)
+                @Html.DisplayFor(modelItem => item.Style)
+                @Html.DisplayFor(modelItem => item.Material)
+                @Html.DisplayFor(modelItem => item.Color)
+            </div>
+
+        </div>
+        /* <tr>
+        <td>
+        @Html.DisplayFor(modelItem => item.Category)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Color)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Image)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Material)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.FabricType)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Pattern)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Style)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Theme)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Shape)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Feature)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+        </tr> */
+    }
+</div>
