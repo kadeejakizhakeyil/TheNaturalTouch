@@ -9,10 +9,10 @@ using TheNaturalTouch.Data;
 
 #nullable disable
 
-namespace TheNaturalTouch.Data.Migrations
+namespace TheNaturalTouch.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240620193127_InitialCreate")]
+    [Migration("20240627235821_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -257,7 +257,7 @@ namespace TheNaturalTouch.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Rating")
                         .HasColumnType("nvarchar(max)");

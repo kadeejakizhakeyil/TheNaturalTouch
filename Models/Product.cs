@@ -1,10 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace TheNaturalTouch.Models
 {
     public class Product
     {
         public int Id { get; set; }
         public string? Category { get; set; }
+
+        [Range(1, 1000)]
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18, 2)")]
+      
         public decimal Price { get; set; }
         public string? Size { get; set; }
         public string? Color { get; set; }
